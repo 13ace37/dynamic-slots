@@ -20,12 +20,14 @@ class playerEvent implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) throws ReflectiveOperationException {
-        changeSlots(plugin.getServer().getOnlinePlayers().size() + 1);
+        int Slots = plugin.getServer().getOnlinePlayers().size() + plugin.config.getInt("dynamicSlotsSize");
+        changeSlots(Slots);
         Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[Dynamic Slots] " + ChatColor.GRAY + "Slots set to " + plugin.getServer().getMaxPlayers());
     }
     @EventHandler
     public void onLeave(PlayerQuitEvent event) throws ReflectiveOperationException {
-        changeSlots(plugin.getServer().getOnlinePlayers().size());
+        int Slots = plugin.getServer().getOnlinePlayers().size() + (plugin.config.getInt("dynamicSlotsSize") - 1);
+        changeSlots(Slots);
         Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[Dynamic Slots] " + ChatColor.GRAY + "Slots set to " + plugin.getServer().getMaxPlayers());
     }
 
