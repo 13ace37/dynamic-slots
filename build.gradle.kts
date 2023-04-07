@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "ch.xace.dynamicslots"
-version = "1.0.0-SNAPSHOT"
+version = "1.19.4"
 description = "Rewrite of the dynamic slots plugin with the paper api"
 
 java {
